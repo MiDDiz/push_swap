@@ -3,7 +3,8 @@ NAME = test
 COMPILER 	= clang
 FLAGS		= -Wall -Werror -Wextra
 LIBRARY		= -L./libs -lft -lftprintf
-SOURCE		= src/main.c
+SOURCE		= src/main.c \
+				src/err_handler.c
 
 $(NAME):
 	$(COMPILER) $(FLAGS) $(SOURCE) $(LIBRARY) -o $(NAME)
