@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 10:54:57 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 11:13:52 by jnaftana         ###   ########.fr       */
+/*   Created: 2022/10/03 11:03:08 by jnaftana          #+#    #+#             */
+/*   Updated: 2022/10/03 11:14:22 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../src/push_swap.h"
 
-// A ->  67 55 2 -52 90 23 
-// B ->
-// Menor a mayor
-// 
-
-
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_stack stack_a;
 	t_stack stack_b;
-
 	// Check if stack given is correct
 	if (!check_args(argc, argv))
 		return (-1);
@@ -35,11 +28,6 @@ int main(int argc, char *argv[])
 		free(stack_a.data);
 		return(-1);
 	}
-	// Solve problem
-	if (!solver_stack(&stack_a, &stack_b))
-	{
-		free(stack_a.data);
-		free(stack_b.data);
-		return;
-	}
+	// Get input, do operation given check for solved.
+	return (0);
 }
