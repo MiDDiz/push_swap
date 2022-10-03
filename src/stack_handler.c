@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:15:48 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 12:02:52 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 13:33:28 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int parse_int(char *ch_int, t_stack *stack)
 
 int parse_stack(t_stack *stack, int argc, char **argv)
 {
+	int i;
+
 	stack->data = (int *)malloc(sizeof(int) * (argc - 1));
 	if (!stack->data)
 	{
@@ -44,9 +46,11 @@ int parse_stack(t_stack *stack, int argc, char **argv)
 		return (-1);
 	}
 	stack->size = 0;
+	i = argc - 1;
 	while (stack->size < argc - 1)
 	{
-		stack->data[stack->size] = parse_int(argv[stack->size + 1], stack);
+		stack->data[i - 1] = parse_int(argv[stack->size + 1], stack);
+		i--;
 		stack->size++;
 	}
 	return(0);
@@ -60,6 +64,6 @@ int generate_empty_stack(t_stack *stack, int size)
 		ft_perror("Error\n");
 		return (-1);
 	}
-	stack->size = size;
+	stack->size = 0;
 	return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 20:36:43 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 12:36:48 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 13:57:08 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void stack_push(t_stack *stack_a, t_stack *stack_b)
 		return ;
 	stack_b->data[stack_b->size] = stack_a->data[stack_a->size - 1];
 	stack_b->size++;
-	stack_b->size--;
+	stack_a->size--;
 }
 
 void stack_rotate(t_stack *stack)
@@ -39,11 +39,12 @@ void stack_rotate(t_stack *stack)
 	int prev_swap;
 
 	i = 0;
+	prev_swap = -1;
 	while (i < stack->size)
 	{
 		if (i == 0)
 		{
-			swap = stack->data[i];
+			prev_swap = stack->data[i];
 		}
 		else if (i == stack->size - 1)
 		{
@@ -59,6 +60,9 @@ void stack_rotate(t_stack *stack)
 		}
 		i++;
 	}
+
+
+	
 }
 
 void stack_reverse_rotate (t_stack *stack)
@@ -72,7 +76,7 @@ void stack_reverse_rotate (t_stack *stack)
 	{
 		if (i == stack->size - 1)
 		{
-			swap = stack->data[i];
+			prev_swap = stack->data[i];
 		}
 		else if (i == 0)
 		{

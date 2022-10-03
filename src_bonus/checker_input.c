@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 11:34:16 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 12:28:26 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:02:39 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 int parse_instr(char *unp_instr)
 {
 	int instr;
-	const char *c_instr[] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr", NULL};
+	const char *c_instr[] = {"sa\0", "sb\0", "ss\0", "pa\0", "pb\0", "ra\0", "rb\0", "rr\0", "rra\0", "rrb\0", "rrr", NULL};
 
 	instr = 0;
 	while (c_instr[instr])
 	{
 		// If we found a match
-		if (!ft_strncmp(c_instr[instr], (const char *)unp_instr, ft_strlen(c_instr[instr])))
+		if (!ft_strncmp(c_instr[instr], (const char *)unp_instr, ft_strlen(unp_instr) - 1))
 			return (instr + 1);
 		instr++;
 	}
@@ -30,7 +30,9 @@ int parse_instr(char *unp_instr)
 
 int exec_instr(int instr, t_stack *stack_a, t_stack *stack_b)
 {
+	//DELETE THIS
 	instructor(instr, stack_a, stack_b);
+	print_stacks(stack_a, stack_b, instr);
 	return (0);
 }
 

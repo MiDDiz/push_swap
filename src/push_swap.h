@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:01:12 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 11:54:26 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 13:11:31 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,8 @@ void instructor(int instruction, t_stack *stack_a, t_stack *stack_b);
 
 // checker_input.c
 int	solve_instructions(t_stack *stack_a, t_stack *stack_b);
+
+//DEBUG DELETE THIS AND FROM THE  MAKEFILE !!!!!!!!!!!!!!!! AAAAAAAAAAAAAASDASDASDADASDADASDASDASDADASDADASDASDASDASDASDASDASDASDADASDASD
+void print_stacks(t_stack *stack_a, t_stack *stack_b, int instr);
+
 #endif

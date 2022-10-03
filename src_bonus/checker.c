@@ -6,11 +6,34 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 11:03:08 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 12:03:06 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 13:27:42 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/push_swap.h"
+
+int check_solved(t_stack *stack_a, t_stack* stack_b)
+{
+	int	i;
+	int prev;
+
+	if (stack_b->size != 0)
+		return (-1);
+	i = 1;
+	prev = stack_a->data[0];
+	while (i < stack_a->size)
+	{
+		if (prev > stack_a->data[i])
+		{
+			ft_perror("Error\n");
+			return (-1);
+		}
+		prev = stack_a->data[i];
+		i++;
+	}
+	ft_printf("OK\n");
+	return (0);
+}
 
 int	main(int argc, char *argv[])
 {
@@ -28,11 +51,21 @@ int	main(int argc, char *argv[])
 		free(stack_a.data);
 		return(-1);
 	}
-	// Get input, do operation given check for solved.
+
+	print_stacks(&stack_a, &stack_b, 0);
+	// Get, parse and do operations given.
 	if (solve_instructions(&stack_a, &stack_b) < 0)
 	{
 		free(stack_a.data);
 		free(stack_b.data);
+		return (-1);
+	}
+	// Check if solved:
+	if (check_solved(&stack_a, &stack_b) < 0)
+	{
+		free(stack_a.data);
+		free(stack_b.data);
+		return (-1);
 	}
 	return (0);
 }

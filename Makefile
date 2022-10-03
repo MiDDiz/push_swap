@@ -1,3 +1,5 @@
+DEBUG_DELETE_THIS_PLS_FOR_THE_LOVE_OF_GOD = src/debug.c
+
 NAME = push_swap
 BONUS_NAME = checker
 
@@ -9,14 +11,14 @@ SOURCE		= src/main.c \
 			
 COMMON_SRC = src/err_handler.c \
 				src/stack_handler.c \
-				src/stack_instructions.c
+				src/stack_instructions.c \
+				$(DEBUG_DELETE_THIS_PLS_FOR_THE_LOVE_OF_GOD)
 
 BONUS_SRC	= src_bonus/checker.c \
 				src_bonus/checker_input.c
 
 GNL_SRC		= libs/srclibs/gnl/get_next_line.c \
 				libs/srclibs/gnl/get_next_line_utils.c
-
 
 
 $(NAME):
