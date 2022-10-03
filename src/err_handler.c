@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   err_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnaftana <jnaftana@student.42madrid.es>    +#+  +:+       +#+        */
+/*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 10:54:55 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/09/20 20:32:03 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 11:55:04 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*Prints in std_err msg*/
-void ft_perror(const char *msg)
+void ft_perror(char *msg)
 {
 	ft_putstr_fd(msg, 2);
 }
@@ -71,12 +71,13 @@ int check_overflows(char *ch_int)
 		{
 			if (MAX_INT_STR[i] < ch_int[i])
 				return (-1);
-			if (MAX_INT_STR[i] = ch_int[i])
+			if (MAX_INT_STR[i] == ch_int[i])
 				i++;
 			else
 				return (0);
 		}
 	}
+	return (0);
 }
 
 int check_underflows(char *ch_int)
@@ -96,7 +97,7 @@ int check_underflows(char *ch_int)
 		{
 			if (MIN_INT_STR[i] < ch_int[i])
 				return (-1);
-			if (MIN_INT_STR[i] = ch_int[i])
+			if (MIN_INT_STR[i] == ch_int[i])
 				i++;
 			else
 				return (0);

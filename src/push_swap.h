@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnaftana <jnaftana@student.42madrid.es>    +#+  +:+       +#+        */
+/*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:01:12 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/09/29 12:37:22 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 11:54:26 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include "../libs/srclibs/42_libft/libft.h"
 #include "../libs/srclibs/ft_printf/includes/ft_printf.h"
+// GNL
+char	*get_next_line(int fd);
 
 # define MAX_INT_STR "2147483647"
 # define MIN_INT_STR "-2147483648"
@@ -41,7 +43,7 @@ int check_args(int argc, char **argv);
 int check_underflows(char *ch_int);
 int check_overflows(char *ch_int);
 int check_duplicates(int num, int *stack, int stack_size);
-void ft_perror(const char *msg);
+void ft_perror(char *msg);
 
 /* stack_handler.c */
 int parse_stack(t_stack *stack, int argc, char **argv);
@@ -49,4 +51,9 @@ int generate_empty_stack(t_stack *stack, int size);
 
 /* stack_instrucitons.c interface */
 void instructor(int instruction, t_stack *stack_a, t_stack *stack_b);
+
+// CHECKER
+
+// checker_input.c
+int	solve_instructions(t_stack *stack_a, t_stack *stack_b);
 #endif

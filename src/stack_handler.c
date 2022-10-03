@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnaftana <jnaftana@student.42madrid.es>    +#+  +:+       +#+        */
+/*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:15:48 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/09/20 20:35:45 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 12:02:52 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int parse_stack(t_stack *stack, int argc, char **argv)
 		return (-1);
 	}
 	stack->size = 0;
-	while (stack->size < argc)
+	while (stack->size < argc - 1)
 	{
 		stack->data[stack->size] = parse_int(argv[stack->size + 1], stack);
 		stack->size++;

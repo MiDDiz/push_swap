@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_instructions.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnaftana <jnaftana@student.42madrid.es>    +#+  +:+       +#+        */
+/*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 20:36:43 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/09/29 12:20:49 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 12:36:48 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,70 +90,43 @@ void stack_reverse_rotate (t_stack *stack)
 	}
 }
 
-void instructor(int instruction, t_stack *stack_a, t_stack *stack_b)
-{
-	if (instruction == sa)
-	{
-		stack_swap(stack_a);
-		ft_printf("sa\n");
-	} 
-	else if (instruction == sb)
-	{
-		stack_swap(stack_b);
-		ft_printf("sb\n");
-	}
-	else if (instruction == ss)
-	{
-		stack_swap(stack_a);
-		stack_swap(stack_b);
-		ft_printf("ss\n");
-	}
-	else if (instruction == pa)
-	{
-		stack_push(stack_b, stack_a);
-		ft_printf("pa\n");
-	}
-	else if (instruction == pb)
-	{
-		stack_push(stack_a, stack_b);
-		ft_printf("pb\n");
-	}
-	else
-		instructor_2(instruction, stack_a, stack_b);
-}
-
 void instructor_2(int instruction, t_stack *stack_a, t_stack *stack_b)
 {
 	if (instruction == ra)
-	{
 		stack_rotate(stack_a);
-		ft_printf("ra\n");
-	}
 	else if (instruction == rb)
-	{
 		stack_rotate(stack_b);
-		ft_printf("rb\n");
-	}
 	else if (instruction == rr)
 	{
 		stack_rotate(stack_a);
 		stack_rotate(stack_b);
-		ft_printf("rr\n");
 	}
 	else if (instruction == rra)
-	{
 		stack_reverse_rotate(stack_a);
-		ft_printf("rra\n");
-	}
 	else if (instruction == rrb)
-	{
 		stack_reverse_rotate(stack_b);
-		ft_printf("rrb\n");
-	}
 	else if (instruction == rrr)
 	{
 		stack_reverse_rotate(stack_a);
 		stack_reverse_rotate(stack_b);
-		ft_printf("rrr\n");
 	}
+}
+
+void instructor(int instruction, t_stack *stack_a, t_stack *stack_b)
+{
+	if (instruction == sa)
+		stack_swap(stack_a);
+	else if (instruction == sb)
+		stack_swap(stack_b);
+	else if (instruction == ss)
+	{
+		stack_swap(stack_a);
+		stack_swap(stack_b);
+	}
+	else if (instruction == pa)
+		stack_push(stack_b, stack_a);
+	else if (instruction == pb)
+		stack_push(stack_a, stack_b);
+	else
+		instructor_2(instruction, stack_a, stack_b);
 }
