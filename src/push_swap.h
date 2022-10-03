@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jnaftana <jnaftana@student.42madrid.es>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:01:12 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/09/19 12:00:40 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/09/29 12:37:22 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,23 @@
 # define MAX_INT_STR "2147483647"
 # define MIN_INT_STR "-2147483648"
 
+typedef struct s_stack{
+	int	*data;
+	int	size;
+} t_stack;
+
+# define sa 1
+# define sb 2
+# define ss 3
+# define pa 4
+# define pb 5
+# define ra 6
+# define rb 7
+# define rr 8
+# define rra 9
+# define rrb 10
+# define rrr 11
+
 /* err_handler.c */
 int check_args(int argc, char **argv);
 int check_underflows(char *ch_int);
@@ -26,4 +43,10 @@ int check_overflows(char *ch_int);
 int check_duplicates(int num, int *stack, int stack_size);
 void ft_perror(const char *msg);
 
+/* stack_handler.c */
+int parse_stack(t_stack *stack, int argc, char **argv);
+int generate_empty_stack(t_stack *stack, int size);
+
+/* stack_instrucitons.c interface */
+void instructor(int instruction, t_stack *stack_a, t_stack *stack_b);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   err_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jnaftana <jnaftana@student.42madrid.es>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 10:54:55 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/09/19 12:07:32 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/09/20 20:32:03 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,14 +105,14 @@ int check_underflows(char *ch_int)
 	return (0);
 }
 
-int check_duplicates(int num, int *stack, int curr_stack_size)
+int check_duplicates(int num, int *stack_data, int curr_stack_size)
 {
 	int i;
 
 	i = 0;
 	while (curr_stack_size > i)
 	{
-		if (stack[i] == num)
+		if (stack_data[i] == num)
 			return (-1);
 		i++;
 	}

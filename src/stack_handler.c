@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   stack_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jnaftana <jnaftana@student.42madrid.es>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:15:48 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/09/19 12:04:17 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/09/20 20:35:45 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // We pass the stack for, in case of error, be able to free it. Also to check it there is duplicates.
-int parse_int(char *ch_int, int *stack, int stack_size)
+int parse_int(char *ch_int, t_stack *stack)
 {
 	int res;
 
 	if ((ch_int[0] != '-' && check_overflows(ch_int)) || 
 		(ch_int[0] == '-' && check_underflows(ch_int)))
 	{
-		free(stack);
+		free(stack->data);
 		ft_perror("Error\n");
 		exit (-1);
 	}
 	res = ft_atoi(ch_int);
-	if (check_duplicate(res, stack))
+	if (check_duplicates(res, stack->data, stack->size))
 	{
-		free(stack);
+		free(stack->data);
 		ft_perror("Error\n");
 		exit (-1);
 	}
@@ -35,20 +35,31 @@ int parse_int(char *ch_int, int *stack, int stack_size)
 }
 
 
-int parse_stack(int **stack, int argc, char **argv)
+int parse_stack(t_stack *stack, int argc, char **argv)
 {
-	int i;
-
-	*stack = (int *)malloc(sizeof(int) * (argc - 1));
-	if (!*stack)
+	stack->data = (int *)malloc(sizeof(int) * (argc - 1));
+	if (!stack->data)
 	{
 		ft_perror("Error\n");
 		return (-1);
 	}
-	i = 0;
-	while (i < argc)
+	stack->size = 0;
+	while (stack->size < argc)
 	{
-		*stack[i] = parse_int(argv[i + 1], stack, i);
-		i++;
+		stack->data[stack->size] = parse_int(argv[stack->size + 1], stack);
+		stack->size++;
 	}
+	return(0);
+}
+
+int generate_empty_stack(t_stack *stack, int size)
+{
+	stack->data = (int *)malloc(sizeof(int) * size);
+	if (!stack->data)
+	{
+		ft_perror("Error\n");
+		return (-1);
+	}
+	stack->size = size;
+	return(0);
 }
