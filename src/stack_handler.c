@@ -6,14 +6,14 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:15:48 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 13:33:28 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:45:06 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // We pass the stack for, in case of error, be able to free it. Also to check it there is duplicates.
-int parse_int(char *ch_int, t_stack *stack)
+int parse_int(char *ch_int, t_stack *stack, int expected_size)
 {
 	int res;
 
@@ -25,7 +25,7 @@ int parse_int(char *ch_int, t_stack *stack)
 		exit (-1);
 	}
 	res = ft_atoi(ch_int);
-	if (check_duplicates(res, stack->data, stack->size))
+	if (check_duplicates(res, stack, expected_size))
 	{
 		free(stack->data);
 		ft_perror("Error\n");
@@ -49,7 +49,7 @@ int parse_stack(t_stack *stack, int argc, char **argv)
 	i = argc - 1;
 	while (stack->size < argc - 1)
 	{
-		stack->data[i - 1] = parse_int(argv[stack->size + 1], stack);
+		stack->data[i - 1] = parse_int(argv[stack->size + 1], stack, argc - 1);
 		i--;
 		stack->size++;
 	}

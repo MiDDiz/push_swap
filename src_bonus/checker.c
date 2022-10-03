@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 11:03:08 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 14:11:05 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:22:30 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	main(int argc, char *argv[])
 	// Check if stack given is correct
 	if (check_args(argc, argv) < 0)
 		return (-1);
+	
 	// Parse argumeents given and build stack_a
 	if (parse_stack(&stack_a, argc, argv) < 0)
 		return(-1);

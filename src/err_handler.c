@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 10:54:55 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 11:55:04 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:47:23 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ int check_overflows(char *ch_int)
 	int i;
 	int len;
 
-	if (*ch_int == '0')
-		return (-1);
 	len = ft_strlen(ch_int);
+	if (*ch_int == '0' && len != 1)
+		return (-1);
 	if (len > 10)
 		return (-1);
 	if (len == 10)
@@ -106,16 +106,20 @@ int check_underflows(char *ch_int)
 	return (0);
 }
 
-int check_duplicates(int num, int *stack_data, int curr_stack_size)
+int check_duplicates(int num, t_stack *stack, int expected_size)
 {
 	int i;
 
-	i = 0;
-	while (curr_stack_size > i)
+	i = expected_size;
+	//ft_printf("num: %d i:%d\n", num, i);
+	while(i > expected_size - stack->size)
 	{
-		if (stack_data[i] == num)
+		
+		//ft_printf("\tPos %d: %d\n",i,  stack->data[i - 1]);
+		
+		if (num == stack->data[i - 1])
 			return (-1);
-		i++;
+		i--;
 	}
 	return (0);
 }

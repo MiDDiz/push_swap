@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:01:12 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 13:11:31 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:44:22 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_stack{
 int check_args(int argc, char **argv);
 int check_underflows(char *ch_int);
 int check_overflows(char *ch_int);
-int check_duplicates(int num, int *stack, int stack_size);
+int check_duplicates(int num, t_stack *stack, int expected_stack_size);
 void ft_perror(char *msg);
 
 /* stack_handler.c */
