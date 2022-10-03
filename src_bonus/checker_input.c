@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 11:34:16 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 14:02:39 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:07:00 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int parse_instr(char *unp_instr)
 	instr = 0;
 	while (c_instr[instr])
 	{
-		// If we found a match
+		// If we found a match we pass the execution: ft_strlen * 1 bc unp_instr has \n at the back.
 		if (!ft_strncmp(c_instr[instr], (const char *)unp_instr, ft_strlen(unp_instr) - 1))
 			return (instr + 1);
 		instr++;

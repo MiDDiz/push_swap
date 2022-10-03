@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 11:03:08 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 13:27:42 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:11:05 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int check_solved(t_stack *stack_a, t_stack* stack_b)
 
 	if (stack_b->size != 0)
 		return (-1);
-	i = 1;
-	prev = stack_a->data[0];
-	while (i < stack_a->size)
+	prev = stack_a->data[stack_a->size - 1];
+	i = stack_a->size - 2;
+	while (i > 0)
 	{
 		if (prev > stack_a->data[i])
 		{
@@ -29,7 +29,7 @@ int check_solved(t_stack *stack_a, t_stack* stack_b)
 			return (-1);
 		}
 		prev = stack_a->data[i];
-		i++;
+		i--;
 	}
 	ft_printf("OK\n");
 	return (0);

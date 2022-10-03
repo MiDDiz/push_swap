@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 12:53:15 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 13:34:16 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:12:34 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ void print_stacks(t_stack *stack_a, t_stack *stack_b, int instr)
 		else ft_printf("-");
 		ft_printf("\n");
 	}
-	
+	ft_printf("\n");
 }
