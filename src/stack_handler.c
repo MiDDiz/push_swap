@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:15:48 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 14:45:06 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:50:11 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ int parse_int(char *ch_int, t_stack *stack, int expected_size)
 		(ch_int[0] == '-' && check_underflows(ch_int)))
 	{
 		free(stack->data);
-		ft_perror("Error\n");
+		ft_perror("Erroes\n");
 		exit (-1);
 	}
 	res = ft_atoi(ch_int);
 	if (check_duplicates(res, stack, expected_size))
 	{
 		free(stack->data);
-		ft_perror("Error\n");
+		ft_perror("Errores\n");
 		exit (-1);
 	}
 	return res;
@@ -42,7 +42,7 @@ int parse_stack(t_stack *stack, int argc, char **argv)
 	stack->data = (int *)malloc(sizeof(int) * (argc - 1));
 	if (!stack->data)
 	{
-		ft_perror("Error\n");
+		ft_perror("Errores\n");
 		return (-1);
 	}
 	stack->size = 0;
@@ -61,7 +61,7 @@ int generate_empty_stack(t_stack *stack, int size)
 	stack->data = (int *)malloc(sizeof(int) * size);
 	if (!stack->data)
 	{
-		ft_perror("Error\n");
+		ft_perror("Errores\n");
 		return (-1);
 	}
 	stack->size = 0;

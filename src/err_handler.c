@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 10:54:55 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 14:47:23 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:57:23 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ int check_ints(int argc, char **argv)
 		argument = argv[i];
 		while (*argument)
 		{
-			if (!ft_isdigit(*argument++) || (argument == argv[i] && *argument == '-'))
+			if (!ft_isdigit(*argument) || (!ft_isdigit(*argument) && argument == argv[i] && *argument == '-'))
+			{
 				return (1);
+			}
+			argument++;
 		}
 		i++;
 	}
@@ -48,7 +51,7 @@ int check_args(int argc, char **argv)
 	}
 	if (check_ints(argc, argv))
 	{
-		ft_perror("Error\n");
+		ft_perror("Errores\n");
 		return (-2);
 	}
 	return (0);
