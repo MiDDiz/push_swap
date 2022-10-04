@@ -21,7 +21,7 @@ GNL_SRC		= libs/srclibs/gnl/get_next_line.c \
 				libs/srclibs/gnl/get_next_line_utils.c
 
 
-$(NAME):
+$(NAME): $(SOURCE)
 	$(COMPILER) $(FLAGS) $(SOURCE) $(COMMON_SRC) $(LIBRARY) -o $(NAME)
 
 all: $(NAME)

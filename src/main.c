@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 10:54:57 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 11:36:37 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/04 10:17:44 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ int main(int argc, char *argv[])
 	{
 		free(stack_a.data);
 		free(stack_b.data);
-		return;
+		return (-1);
 	}
 }

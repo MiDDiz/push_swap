@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:15:48 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 14:50:11 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/04 11:02:24 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,13 @@ int generate_empty_stack(t_stack *stack, int size)
 	}
 	stack->size = 0;
 	return(0);
+}
+
+void	exec_instr(int instr, t_stack *a, t_stack *b)
+{
+	char *str_instr;
+
+	str_instr = ft_itoa(instr);
+	ft_printf("%s\n", str_instr);
+	instructor(instr, a, b);
 }

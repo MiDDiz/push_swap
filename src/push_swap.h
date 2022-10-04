@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:01:12 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 14:44:22 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/04 11:04:32 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,10 @@ int parse_stack(t_stack *stack, int argc, char **argv);
 int generate_empty_stack(t_stack *stack, int size);
 
 /* stack_instrucitons.c interface */
-void instructor(int instruction, t_stack *stack_a, t_stack *stack_b);
+void	instructor(int instruction, t_stack *stack_a, t_stack *stack_b);
 
+/* solver */
+int solver_stack(t_stack *stack_a, t_stack *stack_b);
 // CHECKER
 
 // checker_input.c

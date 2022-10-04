@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 11:34:16 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 14:20:08 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/04 10:28:47 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int parse_instr(char *unp_instr)
 	int instr;
 	const char *c_instr[] = {"sa\0", "sb\0", "ss\0", "pa\0", "pb\0", "ra\0", "rb\0", "rr\0", "rra\0", "rrb\0", "rrr", NULL};
 
+	if (ft_strlen(unp_instr) - 1 < 2 || ft_strlen(unp_instr) - 1 > 3)
+		return (-1);
 	instr = 0;
 	while (c_instr[instr])
 	{
@@ -47,6 +49,7 @@ int	solve_instructions(t_stack *stack_a, t_stack *stack_b)
 		instr = parse_instr(unparsed_instr);
 		if (instr < 0)
 		{
+			ft_perror("Error\n");
 			free(unparsed_instr);
 			return (-1);
 		}

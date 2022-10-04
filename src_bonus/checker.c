@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 11:03:08 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/03 14:22:30 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/04 10:25:02 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,18 @@ int check_solved(t_stack *stack_a, t_stack* stack_b)
 	int prev;
 
 	if (stack_b->size != 0)
+	{
+		ft_perror("Error\n");
 		return (-1);
+	}
 	prev = stack_a->data[stack_a->size - 1];
 	i = stack_a->size - 2;
-	while (i > 0)
+	while (i >= 0)
 	{
+		ft_printf("Checking: %d > %d\n", prev, stack_a->data[i]);
 		if (prev > stack_a->data[i])
 		{
-			ft_perror("Error\n");
+			ft_perror("KO\n");
 			return (-1);
 		}
 		prev = stack_a->data[i];
