@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:40:38 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/04 12:15:26 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/10/04 12:25:44 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void push_on_digit(int digit, t_stack *a, t_stack *b, int direction)
 	while (digit--)
 		power *= 10;
 	iter = 0;
-
+	
 	
 }
 
