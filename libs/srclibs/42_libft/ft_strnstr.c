@@ -36,7 +36,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 				ptr_little++;
 				ptr_big++;
 			}
-			if ((*ptr_little == 0 )
+			if ((*ptr_little == 0)
 				&& (ft_strlen(little) <= len))
 				return ((char *)big);
 		}

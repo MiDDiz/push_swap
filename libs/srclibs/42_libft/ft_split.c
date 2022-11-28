@@ -19,6 +19,10 @@ static size_t	ft_wcount(char *str, char c)
 	wcount = 0;
 	if (!*str)
 		return (0);
+	if (ft_strlen(str) == 1 && *str != c)
+	{
+		wcount = 1;
+	}
 	if (*str != c && *(str + 1))
 		wcount = 1;
 	while (*(str + 1))

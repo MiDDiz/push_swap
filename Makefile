@@ -21,7 +21,7 @@ GNL_SRC		= libs/srclibs/gnl/get_next_line.c \
 				libs/srclibs/gnl/get_next_line_utils.c
 
 
-$(NAME): $(SOURCE)
+$(NAME): libs $(SOURCE)
 	$(COMPILER) $(FLAGS) $(SOURCE) $(COMMON_SRC) $(LIBRARY) -o $(NAME)
 
 all: $(NAME)
@@ -35,7 +35,8 @@ re:
 libs: libft printf
 
 libft:
-	$(MAKE) -C ./libs/srclibs/42_libft 
+	$(MAKE) -C ./libs/srclibs/42_libft
+	mv ./libs/srclibs/42_libft/libft.a ./libs/libft.a
 
 printf:
 	$(MAKE) -C ./libs/srclibs/ft_printf 

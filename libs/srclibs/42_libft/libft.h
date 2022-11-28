@@ -65,6 +65,7 @@ void		ft_lstclear(t_list **lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
+int64_t		ft_pow(int x, uint32_t y);
 char		*ft_utoa(unsigned int n);
 char		*ft_hextoa(size_t num);
 char		*ft_strupper(char *str);
