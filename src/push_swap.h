@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:01:12 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/10/04 11:04:32 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/12/14 15:12:12 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,19 @@ char	*get_next_line(int fd);
 
 # define MAX_INT_STR "2147483647"
 # define MIN_INT_STR "-2147483648"
+
+/* 
+	How does my stack work?
+
+	First of all, we need to understand the data structures:
+	t_stack has: 
+		data ->	# # # # # #
+		size -> 6
+	the HEAD of the stack is at the data[size - 1] position.
+
+	And thats it haha.
+*/
+
 
 typedef struct s_stack{
 	int	*data;
