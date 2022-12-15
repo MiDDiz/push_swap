@@ -6,7 +6,7 @@
 /*   By: jnaftana <jnaftana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:01:12 by jnaftana          #+#    #+#             */
-/*   Updated: 2022/12/14 15:12:12 by jnaftana         ###   ########.fr       */
+/*   Updated: 2022/12/15 15:19:21 by jnaftana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,21 @@ typedef struct s_stack{
 	int	size;
 } t_stack;
 
+typedef struct s_state
+{
+	t_stack			*stack_a;	// Stack a
+	t_stack			*stack_b;	// Stack b
+	int				checksum;	// Checksum for quick comparasion between states.
+	unsigned char	operation;	// What operation has been taken to get to this state.
+	t_state			*parent;	// Previous state
+	int				cost;
+} t_state;
+
+// Porque me apetece 
+typedef enum { false, true } t_bool;
+
+
+// Step
 # define sa 1
 # define sb 2
 # define ss 3
@@ -50,7 +65,7 @@ typedef struct s_stack{
 # define rra 9
 # define rrb 10
 # define rrr 11
-
+# define NUM_OPERATIONS 11
 /* err_handler.c */
 int check_args(int argc, char **argv);
 int check_underflows(char *ch_int);
@@ -74,5 +89,8 @@ int	solve_instructions(t_stack *stack_a, t_stack *stack_b);
 
 //DEBUG DELETE THIS AND FROM THE  MAKEFILE !!!!!!!!!!!!!!!! AAAAAAAAAAAAAASDASDASDADASDADASDASDASDADASDADASDASDASDASDASDASDASDASDADASDASD
 void print_stacks(t_stack *stack_a, t_stack *stack_b, int instr);
+
+/* lst instructions */
+void	*ft_lstpopf(t_list **head);
 
 #endif
